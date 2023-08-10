@@ -1,0 +1,81 @@
+/* PAGE RESETS */
+html, body, #introScene {
+    width: 100%;
+    height: 100vh;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PAGE VARIABLES */
+:root {
+    --knife_w: 30%;
+    --knife_h: 100%
+}
+
+/* STYLING */
+body {
+    background-color: black;
+}
+#introScene {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#animation_canvas {
+    width: 100%;
+    height: 61%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#background_vid {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background-color: rgba(0,0,0,0);
+    object-fit: cover;
+}
+#logo_name {
+    width: 80%;
+    height: 45%;
+    position: fixed;
+    top: 0;
+}
+#left_knife {
+    width: var(--knife_w);
+    height: var(--knife_h);
+    position: relative;
+    left: 12%;
+    top: 70%;
+    transform-origin: 50% 100%;
+    transition: transform 0.3s;
+}
+#right_knife {
+    width: var(--knife_w);
+    height: var(--knife_h);
+    position: relative;
+    right: 12%;
+    top: 70%;
+    transform-origin: 50% 100%;
+    transition: transform 0.3s;
+}
+#whole_bellpeppers {
+    width: 30%;
+    height: 60%;
+    position: relative;
+    top: 90%;
+    transition: transform 0.3s;
+}
+.peppers {
+    width: 12%;
+    height: 20%;
+    position: absolute;
+    top: 70%;
+    transition: transform 0.3s;
+}
