@@ -1,17 +1,28 @@
+
 "use strict";
 
 // HTML Elements
 const foodSlides = document.getElementById("food_prep_slides");
+const slideContnr = document.getElementById("slideContainer");
 
-
+// Variables
+const imagesArr = ["./marketingImages/foodImg1.jpg", "./marketingImages/foodImg2.jpg",
+    "./marketingImages/foodImg3.jpg", "./marketingImages/foodImg4_1.jpg", "./marketingImages/foodImg4_2.jpg",
+    "./marketingImages/foodImg4_3.jpg", "./marketingImages/foodImg4_4.jpg", "./marketingImages/foodImg4_5.jpg",
+    "./marketingImages/foodImg4_6.jpg"];
+let imagesArrIndex = 0;
 
 // Functions
 // Cycle through different images and videos
 
-
+// WebAnimation API / Animations
+// Keyframes
+const slideFrame = [{transform: "translate3d(0,0,0)", opacity: 0.7}, {opacity: 1, offset: 0.2},
+    {opacity: 1, offset: 0.8},
+    {transform: `translate3d(-${slideContnr.getBoundingClientRect().width}px,0,0)`, opacity: 0.7}];
 
 // code to use as instagram embedded
-
+/* TODO:
 <blockquote className="instagram-media" data-instgrm-captioned
             data-instgrm-permalink="https://www.instagram.com/reel/CpfesXYvDE0/?utm_source=ig_embed&amp;utm_campaign=loading"
             data-instgrm-version="14"
@@ -88,3 +99,5 @@ const foodSlides = document.getElementById("food_prep_slides");
            target="_blank">A post shared by MOMENTUM SPICE (@momentumspice)</a></p></div>
 </blockquote>
 <script async src="//www.instagram.com/embed.js"></script>
+
+ */

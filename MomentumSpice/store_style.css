@@ -39,7 +39,7 @@ body {
     border: 1px solid black;
     border-radius: 15px;
     overflow-y: scroll;
-
+    z-index: 1;
 }
 #header {
     grid-area: header;
@@ -74,9 +74,13 @@ li {
     margin-top: 6%;
     margin-bottom: 14%;
     align-items: center;
+    z-index: 0;
+    object-fit: cover;
 }
 #slideContainer {
     height: 80%;
+    width: 300%;
+    object-fit: cover;
 }
 #vid_foodPrep {
 
