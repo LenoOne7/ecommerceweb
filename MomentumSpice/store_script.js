@@ -4,6 +4,10 @@
 // HTML Elements
 const foodSlides = document.getElementById("food_prep_slides");
 const slideContnr = document.getElementById("slideContainer");
+// Node elements
+const node_slideContnr = document.querySelector("#slideContainer");
+const imgNode = document.createElement("img");
+imgNode.className = "slideImg";
 
 // Variables
 const imagesArr = ["./marketingImages/foodImg1.jpg", "./marketingImages/foodImg2.jpg",
@@ -11,15 +15,44 @@ const imagesArr = ["./marketingImages/foodImg1.jpg", "./marketingImages/foodImg2
     "./marketingImages/foodImg4_3.jpg", "./marketingImages/foodImg4_4.jpg", "./marketingImages/foodImg4_5.jpg",
     "./marketingImages/foodImg4_6.jpg"];
 let imagesArrIndex = 0;
+imgNode.src = imagesArr[imagesArrIndex];
 
 // Functions
 // Cycle through different images and videos
+function chngImgSrcIndx(){
+    imagesArrIndex = imagesArrIndex == (imagesArr.length - 1) ? 0 : ++imagesArrIndex;
+    //return imagesArr[imagesArrIndex]
+}
 
 // WebAnimation API / Animations
 // Keyframes
-const slideFrame = [{transform: "translate3d(0,0,0)", opacity: 0.7}, {opacity: 1, offset: 0.2},
+const slideTimingNum = 5000;
+const slideFrame = [{transform: "translate3d(0,0,0)", opacity: 0.7, easing: "ease-in"}, {opacity: 1, offset: 0.2},
     {opacity: 1, offset: 0.8},
-    {transform: `translate3d(-${slideContnr.getBoundingClientRect().width}px,0,0)`, opacity: 0.7}];
+    {transform: `translate3d(-${slideContnr.getBoundingClientRect().width}px,0,0)`, opacity: 0.7, easing: "ease-out"}];
+// Timing
+const slideTime = {duration: 5000, iterations: Infinity, fill: "both"};
+
+
+// Events and handlers
+window.addEventListener("load", ()=>{
+
+   setInterval(()=>{
+       console.log(`imagesArrIndex is ${imagesArrIndex} before`);
+       chngImgSrcIndx();
+       imgNode.src = imagesArr[imagesArrIndex];
+       while (node_slideContnr.firstChild) {
+           node_slideContnr.removeChild(node_slideContnr.firstChild);
+       }
+       node_slideContnr.append(imgNode);
+       node_slideContnr.style.width = `${imgNode.width}`;
+       //slideContnr.innerHTML = `<img src=${chngImgSrcIndx()} class="slideImg">`;
+       console.log(`imagesArrIndex is ${imagesArrIndex} after`)
+   },5000)
+    slideContnr.animate(slideFrame, slideTime);
+});
+
+
 
 // code to use as instagram embedded
 /* TODO:

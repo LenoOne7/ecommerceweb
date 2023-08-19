@@ -85,7 +85,7 @@ li {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: linear-gradient(rgb(0 0 0 / 1) 1%, rgb(255 255 255 / 0));
+    background: linear-gradient(rgb(0 0 0 / 1) 1%, rgb(255 255 255 / 0) 56%);
 }
 #vid_foodPrep {
     position: absolute;
@@ -98,14 +98,16 @@ li {
 }
 #slideContainer {
     position: absolute;
-    top: 0;
+    top: 25%;
     left: 0;
-    height: 80%;
+    height: 65%;
     width: 300%;
-    object-fit: cover;
+    object-fit: fill;
     z-index: 2;
 }
-
+.slideImg {
+    height: 100%;
+}
 #sellSpice {
     width: 100%;
 }
