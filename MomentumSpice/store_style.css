@@ -1,5 +1,5 @@
 /* PAGE RESETS */
-html, body, #container {
+html, body, #container, #slide_popOut_container {
     width: 100%;
     height: 100vh;
 }
@@ -107,6 +107,20 @@ li {
 }
 .slideImg {
     height: 100%;
+}
+#slide_popOut_container {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#slide_popOut {
+    height: 80%;
+    display: none;
+}
+.showPopOut {
+    display: flex;
+    z-index: 4;
 }
 #sellSpice {
     width: 100%;

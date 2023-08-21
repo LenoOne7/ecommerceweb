@@ -4,8 +4,11 @@
 // HTML Elements
 const foodSlides = document.getElementById("food_prep_slides");
 const slideContnr = document.getElementById("slideContainer");
+const test_btn = document.getElementById("btn1");
 // Node elements
 const node_slideContnr = document.querySelector("#slideContainer");
+const node_slide_popOutContnr = document.querySelector("#slide_popOut_container");
+const node_slide_popOut = document.querySelector("#slide_popOut");
 const imgNode = document.createElement("img");
 imgNode.className = "slideImg";
 
@@ -15,6 +18,8 @@ const imagesArr = ["./marketingImages/foodImg1.jpg", "./marketingImages/foodImg2
     "./marketingImages/foodImg4_3.jpg", "./marketingImages/foodImg4_4.jpg", "./marketingImages/foodImg4_5.jpg",
     "./marketingImages/foodImg4_6.jpg"];
 let imagesArrIndex = 0;
+// TODO: make parallel array or object to ImagesArr containing img properties like alt text
+// Initial img selected at index 0
 imgNode.src = imagesArr[imagesArrIndex];
 
 // Functions
@@ -22,6 +27,16 @@ imgNode.src = imagesArr[imagesArrIndex];
 function chngImgSrcIndx(){
     imagesArrIndex = imagesArrIndex == (imagesArr.length - 1) ? 0 : ++imagesArrIndex;
     //return imagesArr[imagesArrIndex]
+}
+// Copy current imgNode into slide_popOut and set display = "flex" z-index = 4
+// Or use the css class showPopOut to change the display style.
+function setImgTo_popOut () {
+    node_slide_popOut.replaceChild(imgNode.cloneNode(), node_slide_popOut.firstChild);
+    node_slide_popOut.firstChild.src = imagesArr[imagesArrIndex];
+    node_slide_popOutContnr.style.display = "flex";
+    node_slide_popOutContnr.style.zIndex = "4";
+    node_slide_popOut.style.display = "flex";
+    node_slide_popOut.style.zIndex = "4";
 }
 
 // WebAnimation API / Animations
@@ -52,6 +67,14 @@ window.addEventListener("load", ()=>{
     slideContnr.animate(slideFrame, slideTime);
 });
 
+//----------------------------------- FOR DEBUG/TEST ------------------------
+//---------------------------------------------------------------------------
+test_btn.addEventListener("click", ()=>{
+    setImgTo_popOut();
+});
+
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 
 
 // code to use as instagram embedded
